@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENNIE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="logo">
+                <i class="fas fa-wallet"></i>
+                <h1>PENNIE</h1>
+            </div>
+            <div class="input-section">
+                <input type="text" id="userName" placeholder="Enter your name">
+                <input type="number" id="monthlySalary" placeholder="Enter your monthly salary">
+                <button id="startBtn">Start Budgeting</button>
+            </div>
+        </div>
+
+        <div class="budget-screen" id="budgetScreen">
+            <div class="header">
+                <h2>Hello, <span id="displayName"></span>!</h2>
+                <p>Your monthly salary: <span id="displaySalary"></span></p>
+            </div>
+
+            <div class="budget-distribution">
+                <h3>Default Budget Distribution</h3>
+                <div class="distribution-cards">
+                    <div class="card wants">
+                        <i class="fas fa-gift"></i>
+                        <h4>Wants</h4>
+                        <p class="percentage">50%</p>
+                        <p class="amount" id="wantsAmount"></p>
+                    </div>
+                    <div class="card needs">
+                        <i class="fas fa-home"></i>
+                        <h4>Needs</h4>
+                        <p class="percentage">30%</p>
+                        <p class="amount" id="needsAmount"></p>
+                    </div>
+                    <div class="card savings">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h4>Savings</h4>
+                        <p class="percentage">20%</p>
+                        <p class="amount" id="savingsAmount"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preference-section">
+                <h3>Are you satisfied with these preferences?</h3>
+                <div class="preference-buttons">
+                    <button id="yesBtn" class="btn-yes">Yes</button>
+                    <button id="noBtn" class="btn-no">No</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-budget-screen" id="customBudgetScreen">
+            <h2>Customize Your Budget</h2>
+            <div class="custom-inputs">
+                <div class="input-group">
+                    <label for="rent">Rent</label>
+                    <input type="number" id="rent" placeholder="Enter rent amount">
+                </div>
+                <div class="input-group">
+                    <label for="food">Food</label>
+                    <input type="number" id="food" placeholder="Enter food expenses">
+                </div>
+                <div class="input-group">
+                    <label for="bills">Bills</label>
+                    <input type="number" id="bills" placeholder="Enter bill amount">
+                </div>
+                <div class="input-group">
+                    <label for="travel">Travel</label>
+                    <input type="number" id="travel" placeholder="Enter travel expenses">
+                </div>
+                <div class="input-group">
+                    <label for="misc">Miscellaneous</label>
+                    <input type="number" id="misc" placeholder="Enter miscellaneous expenses">
+                </div>
+            </div>
+            <button id="calculateBtn">Calculate Budget</button>
+            <div class="result" id="customResult">
+                <div class="chart-container">
+                    <canvas id="customBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="default-budget-screen" id="defaultBudgetScreen">
+            <h2>Your Budget Distribution</h2>
+            <div class="budget-details">
+                <div class="budget-item">
+                    <span class="label">Rent</span>
+                    <span class="amount" id="defaultRent"></span>
+                </div>
+                <div class="budget-item">
+                    <span class="label">Food</span>
+                    <span class="amount" id="defaultFood"></span>
+                </div>
+                <div class="budget-item">
+                    <span class="label">Bills</span>
+                    <span class="amount" id="defaultBills"></span>
+                </div>
+                <div class="budget-item">
+                    <span class="label">Travel</span>
+                    <span class="amount" id="defaultTravel"></span>
+                </div>
+                <div class="budget-item">
+                    <span class="label">Miscellaneous</span>
+                    <span class="amount" id="defaultMisc"></span>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="defaultBarChart"></canvas>
+            </div>
+            <button id="restartBtn">Start Over</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
